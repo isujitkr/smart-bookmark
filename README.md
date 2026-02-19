@@ -158,6 +158,44 @@ When:
 
 ------------------------------------------------------------------------
 
+## 🚧 Challenges Faced & Solutions
+
+### 1️⃣ Delete Not Working (RLS Issue)
+
+Problem: Delete operation failed even though insert and select worked.\
+Cause: Row Level Security policy for delete was missing.\
+Solution: Created a delete policy allowing users to delete only their
+own records.
+
+------------------------------------------------------------------------
+
+### 2️⃣ Realtime Subscription Issues
+
+Problem: Realtime updates were inconsistent.\
+Cause: Session was not available during subscription initialization.\
+Solution: Ensured session exists before subscribing inside useEffect.
+
+------------------------------------------------------------------------
+
+### 3️⃣ Client-Server Separation in Next.js
+
+Problem: Hydration warnings when mixing server and client logic.\
+Solution: - Used createSupabaseServerClient() in server components -
+Used "use client" for client components - Properly separated
+responsibilities
+
+------------------------------------------------------------------------
+
+## 🧠 What I Learned
+
+-   Writing secure Row Level Security policies
+-   Managing realtime state updates safely
+-   Structuring Next.js App Router applications
+-   Handling authentication with Supabase
+-   Avoiding duplicate React state updates
+
+------------------------------------------------------------------------
+
 # 📌 Future Improvements
 
 -   ✏ Edit bookmarks
@@ -169,6 +207,3 @@ When:
 
 ------------------------------------------------------------------------
 
-# 📄 License
-
-MIT License
